@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   LoginUser,
   logoutUser,
+  refreshAccessToken,
   registerUser,
 } from "../controller/user.controller.js";
 export const userRouter = Router();
@@ -25,3 +26,4 @@ userRouter.route("/login").post(LoginUser);
 
 // protected routes
 userRouter.route("/logout").post(IsAuth, logoutUser);
+userRouter.route("/refresh-token").post(refreshAccessToken);
